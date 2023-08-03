@@ -1,142 +1,81 @@
-function rollDie(diceSides) {
-  return Math.floor(Math.random() * diceSides) + 1;
+function collectEggs() {
+  let totalEggs = 6;
+  console.log(totalEggs);
 }
 
-for (let i = 0; i < 6; i++) {
-  console.log(rollDie(10));
+const creature = "Common Sea Dragon";
+
+function scubaDive() {
+  const creature = "Spanish Dancer"; //A type of sea slug
+  console.log(creature);
 }
 
-function printHeart() {
-  console.log("<3");
+scubaDive();
+
+let radius = 8;
+
+// block level scope is between {}
+if (radius > 0) {
+  const PI = 3.1459;
+  let circ = 2 * PI * radius;
+  console.log(circ);
 }
 
-printHeart();
+console.log(radius);
 
-function rant(message) {
-  for (let i = 0; i < 3; i++) {
-    console.log(message.toUpperCase());
-  }
+// functon expressions. Allows passing and storing of funcation variables
+const add = function (x, y) {
+  return x + y;
+};
+
+console.log(add(2, 4));
+
+const square = function (num) {
+  //return num * num;
+  return Math.pow(num, 2);
+};
+
+console.log(square(4));
+
+// Higher order functions. Functions that operate on or with
+// other functions. Can accept and/or return functions.
+
+// functions as arguments
+function callTwice(func) {
+  func();
+  func();
 }
 
-rant("woooo");
-
-function greet(firstName, lastName) {
-  // strings are treated like arrays and can be accessed
-  // here we are returning the first letter of the last name 'D'
-  console.log(`Hi there ${firstName} ${lastName[0]}!`);
+function laugh() {
+  console.log("mfmnfmfmfmf");
 }
 
-greet("Bob", "Dole");
-
-function repeat(input, num) {
-  result = "";
-  for (let i = 0; i < num; i++) {
-    result += input;
-  }
-  console.log(result);
+function rollDice() {
+  const roll = Math.floor(Math.random() * 6) + 1;
+  console.log(roll);
 }
 
-repeat("hi ", 3);
+callTwice(rollDice);
 
-function isSnakeEyes(d1, d2) {
-  if (d1 === 1 && d2 === 1) {
-    console.log("Snake Eyes!");
+// returning functions
+function makeMysteryFunc() {
+  const rand = Math.random();
+  if (rand > 0.5) {
+    return function () {
+      console.log("Great function.");
+    };
   } else {
-    console.log("Not Snake Eyes!");
+    return function () {
+      console.log("Bummer you lose");
+    };
   }
 }
 
-isSnakeEyes(1, 2);
-isSnakeEyes(3, 2);
-isSnakeEyes(1, 1);
+// to use the returned fucntion
+let mystery = makeMysteryFunc();
 
-function isSnakeEyes(d1, d2) {
-  if (d1 === 1 && d2 === 1) {
-    return "Snake Eyes!";
-  } else {
-    return "Not Snake Eyes!";
-  }
+function makeBetweenFunc(min, min) {
+  return function (num) {
+    return num >= min && num <= max;
+  };
 }
-
-function multiply(num1, num2) {
-  let sum = num1 * num2;
-  return sum;
-}
-
-console.log(multiply(2, 3));
-console.log(multiply(9, 9));
-console.log(multiply(5, 4));
-
-function isShortWeather(temperature) {
-  if (temperature > 75) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-const test = [98, 88, 77];
-console.log(test[test.length - 1]);
-
-function lastElement(array) {
-  if (array.length !== 0) {
-    return array[array.length - 1];
-  } else {
-    return null;
-  }
-}
-
-lastElement([3, 5, 7]); //7
-lastElement([1]); //1
-lastElement([]); //null
-
-function capitalize(inputString) {
-  const capitalized =
-    inputString.charAt(0).toUpperCase() + inputString.slice(1);
-  return capitalized;
-}
-
-capitalize("eggplant"); // "Eggplant"
-capitalize("pamplemousse"); // "Pamplemousse"
-capitalize("squid"); //"Squid"
-
-function sumArray(arr) {
-  let total = 0;
-  for (let i = 0; i < arr.length; i++) {
-    total += arr[i];
-  }
-  return total;
-}
-
-let p1 = sumArray([2, 2, 3]);
-
-let p2 = sumArray([1, 2, 3]); // 6
-let p3 = sumArray([2, 2, 2, 2]); // 8
-let p4 = sumArray([50, 50, 1]); // 101
-
-console.log(p1, p2, p3, p4);
-
-function returnDay(num) {
-  const days = [
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-    "Sunday",
-  ];
-
-  if (num < 1 || num > 7) {
-    return null;
-  } else {
-    return days[num - 1];
-  }
-}
-
-p1 = returnDay(1); // "Monday"
-p2 = returnDay(7); // "Sunday"
-p3 = returnDay(4); // "Thursday"
-p4 = returnDay(0); // null
-
-console.log(p1, p2, p3, p4);
