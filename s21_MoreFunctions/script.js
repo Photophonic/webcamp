@@ -30,12 +30,12 @@ const add = function (x, y) {
 
 console.log(add(2, 4));
 
-const square = function (num) {
+const squares = function (num) {
   //return num * num;
   return Math.pow(num, 2);
 };
 
-console.log(square(4));
+console.log(squares(4));
 
 // Higher order functions. Functions that operate on or with
 // other functions. Can accept and/or return functions.
@@ -78,4 +78,54 @@ function makeBetweenFunc(min, min) {
   return function (num) {
     return num >= min && num <= max;
   };
+}
+
+// Methods - a funcation that has been placed as a property on an object
+const square = {
+  area: function (side) {
+    return Math.pow(side, 2);
+  },
+  perimeter: function (side) {
+    return side * 4;
+  },
+};
+
+console.log(square.area(10));
+console.log(square.perimeter(10));
+
+// THIS in methods, used in objects in a method
+const cat = {
+  name: "Beryl",
+  color: "Grayish",
+  breed: "American Short Hair",
+  meow() {
+    console.log(`${this.name} says merp merp`);
+  },
+};
+
+const meow2 = cat.meow;
+
+const hen = {
+  name: "Helen",
+  eggCount: 0,
+  layAnEgg: function () {
+    this.eggCount += 1;
+    return "EGG";
+  },
+};
+
+// error catching try/catch.
+try {
+  hello.toUpperCase();
+} catch {
+  console.log("ERRROROROROROR!");
+}
+
+function yell(msg) {
+  try {
+    console.log(msg.toUpperCase().repeat(3));
+  } catch (e) {
+    console.log(e);
+    console.log("Please pass a string");
+  }
 }
