@@ -22,7 +22,7 @@ const movies = [
   },
   {
     title: "Thing",
-    score: 85,
+    score: 95,
   },
   {
     title: "IT",
@@ -30,11 +30,15 @@ const movies = [
   },
   {
     title: "Young Guns",
-    score: 90,
+    score: 60,
   },
   {
     title: "Alien",
     score: 95,
+  },
+  {
+    title: "Carry",
+    score: 80,
   },
 ];
 
@@ -112,3 +116,55 @@ const score = movies.map(function (movie) {
 });
 
 const scores = movies.map((movie) => `${movie.title} - ${movie.score / 10}`);
+
+// filter. Used to create a new array with rules on the new elements
+const num = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+// create a callback function and return if they pass the criteria
+const oddNum = num.filter((n) => {
+  return n % 2 === 1;
+});
+
+const smallNum = num.filter((n) => n < 5);
+
+// new arra name, movies object with .filter()
+// movie is the in argument with arrow function
+// to the evaluator and return
+const goodMovies = movies.filter((movie) => {
+  return movie.score > 80;
+});
+
+goodMovies.forEach(function (movie) {
+  console.log(`${movie.title} - ${movie.score}`);
+});
+
+// can be combined with maps to create an array of just the titles
+const goodMovieTitles = movies
+  // filter with implicit return
+  .filter((movie) => movie.score > 80)
+  // chain map to pull out just the title
+  .map((movie) => movie.title);
+
+// array of usernames
+userNames = [
+  "mark",
+  "staceysmom1978",
+  "q29832128238983",
+  "carrie98",
+  "MoanaFan",
+];
+
+// // create a function wiht the filter and return the values
+// function validUserNames(usernames) {
+//   return usernames.filter(function (un) {
+//     return un.length < 10;
+//   });
+// }
+
+// using the filter with implicit return.
+function validUserNames(userNames) {
+  return userNames.filter((characters) => characters.length < 10);
+}
+
+// new array calls the function, passes the names, creates list
+// based on the valid filter values
+const validNames = validUserNames(userNames);
