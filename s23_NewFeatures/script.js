@@ -103,14 +103,74 @@ console.log(others);
 
 // to get an element out of an object with destructuring
 // use property name: New Name to change the name of the new variable
-// to add default values
+// to add default value, create name = something
 const {
   email,
   password,
   username,
   userName,
   isAdmin: Admin,
-  Country = "US",
+  country = "US",
 } = newUser;
 // this will create standalone variables of the element from the object
-console.log(Country);
+console.log(country);
+
+// destructuring parameter lists
+// passes in an onject as a parameter
+const fullName = ({ first, last }) => {
+  return `${first} ${last}`;
+};
+
+const people = {
+  first: "Bob",
+  last: "Dole",
+  job: "Polititian",
+};
+
+console.log(fullName(people));
+
+// using maps
+
+// more complicated example
+const movies = [
+  {
+    title: "Ghostbusters",
+    score: 99,
+    year: 1993,
+  },
+  {
+    title: "Thing",
+    score: 95,
+    year: 1949,
+  },
+  {
+    title: "IT",
+    score: 70,
+    year: 1999,
+  },
+  {
+    title: "Young Guns",
+    score: 60,
+    year: 1974,
+  },
+  {
+    title: "Alien",
+    score: 95,
+    year: 1925,
+  },
+  {
+    title: "Carry",
+    score: 80,
+    year: 1997,
+  },
+];
+
+// using an arrow  function
+movies.map((movie) => {
+  return `${movie.title} ${movie.score}, ${movie.year}`;
+});
+
+// destructured version. In maps, needs () with { } inside for destructure
+movies.map(({ title, score, year }) => {
+  return `${title} ${score}, ${year}`;
+});
