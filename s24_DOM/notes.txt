@@ -52,3 +52,28 @@ const doneTodos = document.querySelectorAll('.done');
 
 
 const checkbox = document.querySelector('input[type="checkbox"]');
+
+
+
+
+
+Manipulating Attributes Practice
+Let's get some practice working with DOM element attributes. I've provided you with some very basic markup.  Please select the image element and:
+
+change its source to this url: https://devsprouthosting.com/images/chicken.jpg
+
+change its alt text to be "chicken"
+
+    
+<h4>Which Came First?</h4>
+<img src="https://devsprouthosting.com/images/egg.jpg" width="200px">
+<!-- image source: unsplash.com -->
+
+
+const eggChicken = document.querySelector("img");
+
+eggChicken.setAttribute(
+  "src",
+  "https://devsprouthosting.com/images/chicken.jpg"
+);
+eggChicken.setAttribute("alt", "chicken");
