@@ -67,10 +67,18 @@ inpt.setAttribute("type", "text");
 // <img src="https://devsprouthosting.com/images/egg.jpg" width="200px">
 // <!-- image source: unsplash.com -->
 
-const eggChicken = document.querySelector("img");
+// changing styles
+const h1 = document.querySelector("h1");
+// can view in the console styles with h1.styles
+// to change the style inline with JS. Not preferred but works
+h1.style.color = "blue";
+h1.style.fontSize = "3em";
 
-eggChicken.setAttribute(
-  "src",
-  "https://devsprouthosting.com/images/chicken.jpg"
-);
-eggChicken.setAttribute("alt", "chicken");
+// using a loop to target all links with inline
+for (let link of allLink) {
+  link.style.color = "red";
+  link.style.textDecorationColor = "blue";
+  link.style.textDecorationStyle = "wavy";
+}
+
+// the preffered way is to assign classes

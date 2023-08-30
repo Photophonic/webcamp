@@ -77,3 +77,27 @@ eggChicken.setAttribute(
   "https://devsprouthosting.com/images/chicken.jpg"
 );
 eggChicken.setAttribute("alt", "chicken");
+
+
+
+
+
+const container = document.querySelector('#container');
+container.style.textAlign = 'center';
+
+const tree = document.querySelector("img");
+tree.style.width = '150px';
+tree.style.borderRadius = '50%';
+
+
+const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+
+// create a counter to use as reference for external array colors
+let i = 0;
+
+const spans = document.querySelectorAll("span");
+for (let span of spans) {
+  span.style.color = colors[i];
+  // increment counter for colors array
+  i++;
+}
