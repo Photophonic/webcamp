@@ -101,3 +101,11 @@ for (let span of spans) {
   // increment counter for colors array
   i++;
 }
+
+
+
+const lis = document.querySelectorAll("li");
+
+for (let li of lis) {
+  li.classList.toggle("highlight");
+}

@@ -82,3 +82,73 @@ for (let link of allLink) {
 }
 
 // the preffered way is to assign classes
+const h2 = document.querySelector("h2");
+// comes back null
+h2.getAttribute("classes");
+
+// this will add the class purple to the tag.
+// There is a css class named puprle so the style would apply
+h2.setAttribute("class", "purple");
+
+// to get the class list of an object
+h2.classList;
+
+// to add to it use .add (similar to push for arrays)
+h2.classList.add("boreder");
+
+// to remove a class
+h2.classList.remove("border");
+
+// to toggle
+h2.classList.toggle("purple");
+
+const firstBold = document.querySelector("b");
+
+console.log(firstBold.parentElement);
+// will return <p> tags, can keep goign up line.
+// every element will have only one parent.
+
+const para = firstBold.parentElement;
+//para.children will return all child objects to the element.
+
+const child = para.children;
+// to view use [#]. e.g. child[3]
+
+const imgSquare = document.querySelector(".square");
+
+const imgNext = imgSquare.nextElementSibling;
+
+const imgPrev = imgSquare.previousElementSibling;
+
+//append and append child
+const newImage = document.createElement("img");
+// console.dir(newImage) to view the object
+
+newImage.src =
+  "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Silky_bantam.jpg/440px-Silky_bantam.jpg";
+
+// to add the image, you need to append it to an existing item.
+document.body.appendChild(newImage);
+// add a class
+newImage.classList.add("square");
+
+const newH3 = document.createElement("h3");
+newH3.innerText = "new H3";
+document.body.appendChild(newH3);
+
+// another option. apped. Is more flexible than appendChild()
+const p = document.querySelector("p");
+// appends to the end of the paragraph
+p.append("New Text Here", " More text here");
+
+p.prepend("Even more new text");
+
+const lotsOfButtons = document.querySelector("#container");
+
+for (let i = 0; i <= 100; i++) {
+  const newButtons = document.createElement("button");
+  const buttonText = document.createTextNode("Hey");
+  newButtons.appendChild(buttonText);
+
+  lotsOfButtons.appendChild(newButtons);
+}
