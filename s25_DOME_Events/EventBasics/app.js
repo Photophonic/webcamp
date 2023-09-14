@@ -1,39 +1,50 @@
-const btn = document.querySelector('#v2');
+const btn = document.getElementById("v2");
 
 btn.onclick = function () {
-    console.log("YOU CLICKED ME!")
-    console.log("I HOPE IT WORKED!!")
-}
+  console.log("Button v2 clicked.");
+};
 
 function scream() {
-    console.log("AAAAAHHHHH");
-    console.log("STOP TOUCHING ME!")
+  console.log("mrgrgr");
 }
 
+// do not add () to scream or else it will be executed on load.
+// you want to execute the function when moused over.
 btn.onmouseenter = scream;
 
+// document.querySelector("h1").onclick = function () {
+//   alert("you clicked the h1");
+// };
 
-document.querySelector('h1').onclick = () => {
-    alert('you clicked the h1!')
-}
+// evenet listeners, the prefered way vs. the version directly above.
+const button = document.querySelector("h1");
 
+// generic listener then run the callback function
+button.addEventListener("click", () => {
+  alert("You clicked me");
+});
 
-const btn3 = document.querySelector('#v3');
-btn3.addEventListener('click', function () {
-    alert("CLICKED!");
-})
+const btn3 = document.querySelector("#v3");
 
-function twist() {
-    console.log("TWIST!")
-}
-function shout() {
-    console.log("SHOUT!")
-}
+// arrow fucntion used as the call back
+// many different event listener options.
+btn3.addEventListener("mousedown", () => {
+  console.log("You clicked button 3.");
+});
 
-const tasButton = document.querySelector('#tas');
+// using the addEventListener it allows for multiple propetied
+// to be assigned to the same item.
+btn3.addEventListener("mouseup", () => {
+  console.log("You unclicked button 3.");
+});
 
-// tasButton.onclick = twist;
-// tasButton.onclick = shout;
+const btnHello = document.querySelector("#hello");
+const btnGoodbye = document.querySelector("#goodbye");
 
-tasButton.addEventListener('click', twist)
-tasButton.addEventListener('click', shout)
+btnHello.addEventListener("click", () => {
+  console.log("hello");
+});
+
+btnGoodbye.addEventListener("click", () => {
+  console.log("goodbye");
+});
