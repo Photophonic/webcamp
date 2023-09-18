@@ -15,3 +15,11 @@ const randomColor = () => {
 
   return `rgb(${r}, ${g}, ${b})`;
 };
+
+const buttons = document.querySelectorAll("button");
+
+for (let button of buttons) {
+  button.addEventListener("click", function () {
+    console.log("clicked");
+  });
+}
